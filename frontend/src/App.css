@@ -16,21 +16,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Uber Eats Color Palette */
+/* Zomato Color Palette */
 :root {
-  --uber-green: #06c167;
-  --uber-green-dark: #05a756;
-  --uber-green-light: #e8f5e8;
-  --uber-black: #000000;
-  --uber-dark-gray: #2d3748;
-  --uber-gray: #4a5568;
-  --uber-light-gray: #718096;
-  --uber-bg-gray: #f7fafc;
-  --uber-border: #e2e8f0;
-  --uber-white: #ffffff;
-  --uber-red: #e53e3e;
-  --uber-orange: #ff8c00;
-  --uber-blue: #3182ce;
+  --zomato-red: #e23744;
+  --zomato-red-dark: #cb202d;
+  --zomato-red-light: #ffebec;
+  --zomato-dark: #1c1c1c;
+  --zomato-gray: #363636;
+  --zomato-light-gray: #696969;
+  --zomato-bg-gray: #fcfcfc;
+  --zomato-border: #e8e8e8;
+  --zomato-white: #ffffff;
+  --zomato-gold: #ffba08;
+  --zomato-green: #1ba672;
+  --zomato-blue: #1976d2;
+  --zomato-shadow: rgba(28, 28, 28, 0.08);
 }
 
 /* Layout */
@@ -454,7 +454,7 @@ body {
   flex: 1 1 0%;
 }
 
-/* Uber Eats Button Styles */
+/* Zomato Button Styles */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -462,18 +462,19 @@ body {
   padding: 12px 24px;
   border: none;
   font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   outline: none;
   min-height: 48px;
   font-family: inherit;
+  letter-spacing: 0.5px;
 }
 
 .btn:focus {
-  outline: 2px solid var(--uber-green);
+  outline: 2px solid var(--zomato-red);
   outline-offset: 2px;
 }
 
@@ -483,59 +484,71 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--uber-black);
-  color: var(--uber-white);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  background-color: var(--zomato-red);
+  color: var(--zomato-white);
+  box-shadow: 0 2px 8px rgba(226, 55, 68, 0.2);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #1a1a1a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--zomato-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(226, 55, 68, 0.3);
 }
 
-.btn-success {
-  background-color: var(--uber-green);
-  color: var(--uber-white);
-  box-shadow: 0 2px 8px rgba(6, 193, 103, 0.2);
+.btn-secondary {
+  background-color: var(--zomato-white);
+  color: var(--zomato-red);
+  border: 1px solid var(--zomato-red);
+  box-shadow: 0 2px 8px var(--zomato-shadow);
 }
 
-.btn-success:hover:not(:disabled) {
-  background-color: var(--uber-green-dark);
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--zomato-red-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(6, 193, 103, 0.3);
+  box-shadow: 0 4px 12px var(--zomato-shadow);
 }
 
 .btn-outline {
   background-color: transparent;
-  border: 2px solid var(--uber-border);
-  color: var(--uber-dark-gray);
+  border: 1px solid var(--zomato-border);
+  color: var(--zomato-gray);
 }
 
 .btn-outline:hover:not(:disabled) {
-  border-color: var(--uber-black);
-  background-color: var(--uber-bg-gray);
+  border-color: var(--zomato-red);
+  color: var(--zomato-red);
+  background-color: var(--zomato-red-light);
 }
 
 .btn-ghost {
   background-color: transparent;
-  color: var(--uber-gray);
+  color: var(--zomato-light-gray);
   padding: 8px 16px;
   min-height: auto;
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background-color: var(--uber-bg-gray);
-  color: var(--uber-dark-gray);
+  background-color: var(--zomato-bg-gray);
+  color: var(--zomato-gray);
+}
+
+.btn-success {
+  background-color: var(--zomato-green);
+  color: var(--zomato-white);
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #159f5f;
+  transform: translateY(-1px);
 }
 
 .btn-danger {
-  background-color: var(--uber-red);
+  background-color: var(--zomato-red);
   color: white;
 }
 
 .btn-danger:hover:not(:disabled) {
-  background-color: #c53030;
+  background-color: var(--zomato-red-dark);
 }
 
 /* Animations */
