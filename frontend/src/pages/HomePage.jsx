@@ -5,259 +5,290 @@ const HomePage = () => {
   const { isAuthenticated, user } = useAuth()
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-400 rounded-full opacity-10 -translate-y-48 translate-x-48"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-400 rounded-full opacity-10 translate-y-40 -translate-x-40"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white rounded-full opacity-5 -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-6 py-32 text-center">
-          {/* Main heading with enhanced typography */}
-          <div className="mb-12 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              <span className="block bg-gradient-to-r from-white to-primary-100 bg-clip-text text-transparent">
-                Fresh Home-Cooked
-              </span>
-              <span className="block text-4xl md:text-6xl font-light text-primary-100 mt-4 tracking-wide">
-                Meals from Local Chefs
-              </span>
-            </h1>
-            
-            {/* Decorative line */}
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-200 to-white mx-auto mb-8 rounded-full"></div>
-          </div>
-          
-          {/* Enhanced subtitle */}
-          <p className="text-xl md:text-2xl text-primary-100 max-w-4xl mx-auto leading-relaxed mb-12 animate-slide-up font-light">
-            Discover amazing home-cooked meals from talented chefs in your neighborhood. 
-            <span className="block mt-2 text-lg md:text-xl text-primary-200">
-              Authentic flavors, fresh ingredients, delivered to your door.
-            </span>
-          </p>
-          
-          {/* Enhanced CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up">
-            {!isAuthenticated ? (
-              <>
-                <Link 
-                  to="/meals" 
-                  className="group btn bg-white text-primary-600 hover:bg-primary-50 px-10 py-5 text-lg font-semibold shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-full"
-                >
-                  <span className="flex items-center">
-                    <span className="text-2xl mr-3">🍽️</span>
-                    Browse Meals
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                  </span>
-                </Link>
-                <Link 
-                  to="/register" 
-                  className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary-600 px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300"
-                >
-                  <span className="flex items-center">
-                    <span className="text-2xl mr-3">✨</span>
-                    Join Now
-                  </span>
-                </Link>
-              </>
-            ) : (
-              <>
-                <Link 
-                  to="/meals" 
-                  className="group btn bg-white text-primary-600 hover:bg-primary-50 px-10 py-5 text-lg font-semibold shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-full"
-                >
-                  <span className="flex items-center">
-                    <span className="text-2xl mr-3">🍽️</span>
-                    Browse Meals
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform duration-200">→</span>
-                  </span>
-                </Link>
-                {user?.role === 'chef' ? (
-                  <Link 
-                    to="/chef-dashboard" 
-                    className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary-600 px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300"
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Uber Eats Style */}
+      <section className="relative bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[600px] py-16">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h1 className="text-5xl lg:text-6xl font-black text-black leading-tight">
+                  Order food to your door
+                </h1>
+                <p className="text-xl text-gray-600 max-w-lg">
+                  Discover amazing home-cooked meals from talented local chefs in your neighborhood. Fresh ingredients, authentic flavors.
+                </p>
+              </div>
+
+              {/* Address Input */}
+              <div className="bg-white border-2 border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center space-x-4">
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📍</span>
+                      <div className="flex-1">
+                        <input
+                          type="text"
+                          placeholder="Enter delivery address"
+                          className="w-full text-lg font-medium text-gray-900 placeholder-gray-500 border-none outline-none bg-transparent"
+                          defaultValue="New York, NY"
+                        />
+                        <p className="text-sm text-gray-500 mt-1">Deliver now</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Link
+                    to="/meals"
+                    className="btn btn-success px-8 py-3 text-lg font-semibold whitespace-nowrap"
                   >
-                    <span className="flex items-center">
-                      <span className="text-2xl mr-3">👨‍🍳</span>
-                      Chef Dashboard
-                    </span>
+                    Find food
                   </Link>
-                ) : (
-                  <Link 
-                    to="/orders" 
-                    className="btn btn-outline border-2 border-white text-white hover:bg-white hover:text-primary-600 px-10 py-5 text-lg font-semibold rounded-full transition-all duration-300"
-                  >
-                    <span className="flex items-center">
-                      <span className="text-2xl mr-3">📋</span>
-                      My Orders
-                    </span>
-                  </Link>
-                )}
-              </>
-            )}
-          </div>
-          
-          {/* Trust indicators */}
-          <div className="mt-16 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-primary-200 animate-slide-up">
-            <div className="flex items-center space-x-2">
-              <span className="text-xl">⭐</span>
-              <span className="text-sm font-medium">4.9/5 Rating</span>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/meals"
+                  className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full transition-colors"
+                >
+                  <span className="text-lg">🍕</span>
+                  <span className="text-sm font-medium text-gray-700">Pizza</span>
+                </Link>
+                <Link
+                  to="/meals"
+                  className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full transition-colors"
+                >
+                  <span className="text-lg">🍔</span>
+                  <span className="text-sm font-medium text-gray-700">Burgers</span>
+                </Link>
+                <Link
+                  to="/meals"
+                  className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full transition-colors"
+                >
+                  <span className="text-lg">🍜</span>
+                  <span className="text-sm font-medium text-gray-700">Asian</span>
+                </Link>
+                <Link
+                  to="/meals"
+                  className="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full transition-colors"
+                >
+                  <span className="text-lg">🥗</span>
+                  <span className="text-sm font-medium text-gray-700">Healthy</span>
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="text-xl">🛡️</span>
-              <span className="text-sm font-medium">Verified Chefs</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="text-xl">🚚</span>
-              <span className="text-sm font-medium">30min Delivery</span>
+
+            {/* Right Image */}
+            <div className="relative">
+              <div className="aspect-square bg-gradient-to-br from-green-400 to-green-600 rounded-3xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=600&fit=crop&crop=center"
+                  alt="Delicious food"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Floating Cards */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=60&h=60&fit=crop&crop=center"
+                    alt="Food"
+                    className="w-12 h-12 rounded-lg object-cover"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900">Margherita Pizza</p>
+                    <p className="text-sm text-gray-500">⭐ 4.8 • 25-35 min</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl p-4 max-w-xs">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=60&h=60&fit=crop&crop=center"
+                    alt="Food"
+                    className="w-12 h-12 rounded-lg object-cover"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-900">Caesar Salad</p>
+                    <p className="text-sm text-gray-500">⭐ 4.9 • 15-25 min</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              How It Works
+      {/* Categories Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-black text-black mb-4">
+              What's on your mind?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Simple steps to enjoy delicious home-cooked meals from your neighborhood
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl">🔍</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Discover</h3>
-              <p className="text-gray-600">
-                Browse meals from verified home chefs in your area. Filter by cuisine, 
-                dietary preferences, and delivery time.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl">❤️</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Order</h3>
-              <p className="text-gray-600">
-                Add your favorite meals to cart, customize your order, and checkout 
-                securely with multiple payment options.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl">🚚</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Enjoy</h3>
-              <p className="text-gray-600">
-                Track your order in real-time and enjoy fresh, home-cooked meals 
-                delivered hot to your doorstep.
-              </p>
-            </div>
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-6">
+            {[
+              { emoji: '🍕', name: 'Pizza', color: 'bg-red-100' },
+              { emoji: '🍔', name: 'Burgers', color: 'bg-yellow-100' },
+              { emoji: '🍜', name: 'Noodles', color: 'bg-orange-100' },
+              { emoji: '🥗', name: 'Salads', color: 'bg-green-100' },
+              { emoji: '🍛', name: 'Biryani', color: 'bg-purple-100' },
+              { emoji: '🌮', name: 'Mexican', color: 'bg-pink-100' },
+              { emoji: '🍣', name: 'Sushi', color: 'bg-blue-100' },
+              { emoji: '🍰', name: 'Desserts', color: 'bg-indigo-100' },
+            ].map((category, index) => (
+              <Link
+                key={index}
+                to="/meals"
+                className="group flex flex-col items-center space-y-3 p-4 hover:scale-105 transition-transform duration-200"
+              >
+                <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center group-hover:shadow-lg transition-shadow`}>
+                  <span className="text-2xl">{category.emoji}</span>
+                </div>
+                <span className="text-sm font-medium text-gray-700 text-center">{category.name}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose FoodieLocal?
+      {/* Popular Restaurants */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-black text-black mb-4">
+              Popular near you
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Experience the difference of authentic home-cooked meals
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-xl">🛡️</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Verified Chefs</h3>
-              <p className="text-gray-600 text-sm">All chefs are verified and follow strict food safety standards</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Maria's Kitchen",
+                cuisine: 'Italian • Pizza',
+                rating: '4.8',
+                time: '25-35 min',
+                image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop',
+                badge: 'Free delivery'
+              },
+              {
+                name: "Spice Garden",
+                cuisine: 'Indian • Curry',
+                rating: '4.9',
+                time: '30-40 min',
+                image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop',
+                badge: 'Promoted'
+              },
+              {
+                name: "Fresh Bowl Co.",
+                cuisine: 'Healthy • Salads',
+                rating: '4.7',
+                time: '15-25 min',
+                image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop',
+                badge: 'New'
+              }
+            ].map((restaurant, index) => (
+              <Link
+                key={index}
+                to="/meals"
+                className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="relative">
+                  <img
+                    src={restaurant.image}
+                    alt={restaurant.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-3 left-3 bg-white px-2 py-1 rounded-full text-xs font-semibold text-gray-700">
+                    {restaurant.badge}
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-lg text-gray-900 mb-1">{restaurant.name}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{restaurant.cuisine}</p>
+                  <div className="flex items-center justify-between text-sm">
+                    <div className="flex items-center space-x-1">
+                      <span className="text-yellow-400">⭐</span>
+                      <span className="font-medium">{restaurant.rating}</span>
+                    </div>
+                    <span className="text-gray-500">{restaurant.time}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-xl">⏰</span>
+      {/* App Download Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-black text-black">
+                Get the FoodieLocal app
+              </h2>
+              <p className="text-xl text-gray-600">
+                Order faster and easier with our mobile app. Get exclusive deals and track your orders in real-time.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                  <span className="text-2xl">📱</span>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Download on the</div>
+                    <div className="font-semibold">App Store</div>
+                  </div>
+                </button>
+                <button className="flex items-center space-x-3 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                  <span className="text-2xl">🤖</span>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-300">Get it on</div>
+                    <div className="font-semibold">Google Play</div>
+                  </div>
+                </button>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Fresh Daily</h3>
-              <p className="text-gray-600 text-sm">Meals prepared fresh daily with the finest ingredients</p>
             </div>
-
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-xl">⭐</span>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-3xl p-8 text-center">
+                <div className="text-6xl mb-4">📱</div>
+                <div className="text-white text-xl font-bold">Download Now</div>
+                <div className="text-green-100 text-sm mt-2">Available on iOS & Android</div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Top Rated</h3>
-              <p className="text-gray-600 text-sm">Highly rated chefs and meals by our community</p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white text-xl">💝</span>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Made with Love</h3>
-              <p className="text-gray-600 text-sm">Every meal is prepared with passion and care</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Chef CTA Section */}
-      <section className="py-20 bg-primary-600 text-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-6xl mb-6">👨‍🍳</div>
-            <h2 className="text-3xl font-bold mb-6">
-              Are You a Home Chef?
-            </h2>
-            <p className="text-xl mb-8">
-              Share your culinary passion and earn money by cooking for your neighbors. 
-              Join our community of talented home chefs and turn your kitchen into a business.
-            </p>
-            <div className="flex flex-col space-y-4 items-center">
-              <Link to="/chef-register" className="btn bg-white text-primary-600 px-8 py-4 text-lg font-semibold">
-                Become a Chef
-              </Link>
-              <Link to="/chef-info" className="btn btn-outline border-white text-white px-8 py-4 text-lg font-semibold">
-                Learn More
-              </Link>
+      <section className="py-16 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-black">
+                Earn money as a chef
+              </h2>
+              <p className="text-xl text-gray-300">
+                Share your culinary passion and earn money by cooking for your neighbors. Join our community of talented home chefs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/register" className="btn btn-success px-8 py-3 text-lg font-semibold">
+                  Get started
+                </Link>
+                <button className="btn btn-ghost text-white border border-gray-600 px-8 py-3 text-lg font-semibold">
+                  Learn more
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">500+</div>
-              <div className="text-gray-600">Home Chefs</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">10K+</div>
-              <div className="text-gray-600">Happy Customers</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">50K+</div>
-              <div className="text-gray-600">Meals Delivered</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary-600 mb-2">25+</div>
-              <div className="text-gray-600">Cities</div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-3xl p-8 text-center">
+                <div className="text-6xl mb-4">👨‍🍳</div>
+                <div className="text-white text-xl font-bold">Start Cooking</div>
+                <div className="text-green-100 text-sm mt-2">Turn your passion into profit</div>
+              </div>
             </div>
           </div>
         </div>
