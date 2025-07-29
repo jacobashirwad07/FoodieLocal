@@ -20,8 +20,6 @@ A full-stack web application that connects home chefs with nearby customers for 
 │   │   └── test/          # Frontend tests
 │   ├── public/            # Static assets
 │   └── package.json       # Frontend dependencies
-└── .kiro/                 # Kiro specs and configuration
-    └── specs/             # Feature specifications
 ```
 
 ## Technology Stack
