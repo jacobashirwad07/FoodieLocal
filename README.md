@@ -252,3 +252,6 @@ Ensure all production environment variables are properly configured:
 ## License
 
 This project is licensed under the MIT License.
+
+
+<img width="1864" height="1017" alt="Fl" src="https://github.com/user-attachments/assets/210854a8-0adf-4dd6-8289-d5e153b07fec" />
